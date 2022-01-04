@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="RealEstateAgent.Web.MvcApplication" Language="C#" %>
+﻿<%@ Application Inherits="Umbraco.Web.UmbracoApplication" Language="C#" %>
