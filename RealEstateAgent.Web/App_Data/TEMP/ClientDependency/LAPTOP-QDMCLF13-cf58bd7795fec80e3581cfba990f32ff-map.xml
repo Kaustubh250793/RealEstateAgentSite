@@ -39,4 +39,42 @@
       <file name="/umbraco/js/init.js" />
     </files>
   </item>
+  <item key="L2Nzcy9ib290c3RyYXAubWluLmNzczsvc3R5bGUuY3NzOy9jc3MvY29sb3JzLmNzczsvY3NzL3ZlcnNpb25zLmNzczsvY3NzL3Jlc3BvbnNpdmUuY3NzOy9jc3MvY3VzdG9tLmNzczs" file="C:\src\RealEstateAgentSite\RealEstateAgent.Web\App_Data\TEMP\ClientDependency\1_1cdd1ae9014846068a81485b9c53abcc.cdC" compression="gzip" version="1">
+    <files>
+      <file name="/css/bootstrap.min.css" />
+      <file name="/style.css" />
+      <file name="/css/colors.css" />
+      <file name="/css/versions.css" />
+      <file name="/css/responsive.css" />
+      <file name="/css/custom.css" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY28vYXNzZXRzL2Nzcy9jYW52YXNkZXNpZ25lci5jc3M7" file="C:\src\RealEstateAgentSite\RealEstateAgent.Web\App_Data\TEMP\ClientDependency\1_c52771e8086f4e3ba115a15b6e5721a5.cdC" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco/assets/css/canvasdesigner.css" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY28vbGliL3NpZ25hbHIvanF1ZXJ5LnNpZ25hbFIuanM7" file="C:\src\RealEstateAgentSite\RealEstateAgent.Web\App_Data\TEMP\ClientDependency\1_585c2794eda24ea786a06e9711660f8c.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco/lib/signalr/jquery.signalR.js" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY28vbGliL2pxdWVyeS9qcXVlcnkubWluLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyL2FuZ3VsYXIuanM7L3VtYnJhY28vbGliL3VuZGVyc2NvcmUvdW5kZXJzY29yZS1taW4uanM7L3VtYnJhY28vbGliL3VtYnJhY28vRXh0ZW5zaW9ucy5qczsvdW1icmFjby9qcy91dGlsaXRpZXMuanM7L3VtYnJhY28vanMvYXBwLmpzOy91bWJyYWNvL2pzL3VtYnJhY28ucmVzb3VyY2VzLmpzOy91bWJyYWNvL2pzL3VtYnJhY28uc2VydmljZXMuanM7L3VtYnJhY28vanMvdW1icmFjby5pbnRlcmNlcHRvcnMuanM7" file="C:\src\RealEstateAgentSite\RealEstateAgent.Web\App_Data\TEMP\ClientDependency\1_835d433556c74bf7af9ec5547deecbd4.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco/lib/jquery/jquery.min.js" />
+      <file name="/umbraco/lib/angular/angular.js" />
+      <file name="/umbraco/lib/underscore/underscore-min.js" />
+      <file name="/umbraco/lib/umbraco/Extensions.js" />
+      <file name="/umbraco/js/utilities.js" />
+      <file name="/umbraco/js/app.js" />
+      <file name="/umbraco/js/umbraco.resources.js" />
+      <file name="/umbraco/js/umbraco.services.js" />
+      <file name="/umbraco/js/umbraco.interceptors.js" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY28vanMvdW1icmFjby5wcmV2aWV3LmpzOw" file="C:\src\RealEstateAgentSite\RealEstateAgent.Web\App_Data\TEMP\ClientDependency\1_992d1b6d5e6d42609a62d5ed82ddea08.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco/js/umbraco.preview.js" />
+    </files>
+  </item>
 </map>

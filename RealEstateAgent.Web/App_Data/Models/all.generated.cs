@@ -6,7 +6,7 @@ using  Umbraco.Core.Models;
 using  Umbraco.Core.Models.PublishedContent;
 using  Umbraco.Web;
 using  Umbraco.ModelsBuilder.Embedded;
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "39fe55466802eebe")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f082137b1368eec5")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -38,7 +38,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>Home</summary>
 	[PublishedModel("home")]
-	public partial class Home : PublishedContentModel, IBasicContentControls
+	public partial class Home : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -60,81 +60,58 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
-
-		///<summary>
-		/// Main content: Enter main content for this page
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		[ImplementPropertyType("mainContent")]
-		public virtual global::System.Web.IHtmlString MainContent => global::Umbraco.Web.PublishedModels.BasicContentControls.GetMainContent(this);
-
-		///<summary>
-		/// Title: Enter a title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		[ImplementPropertyType("title")]
-		public virtual string Title => global::Umbraco.Web.PublishedModels.BasicContentControls.GetTitle(this);
 	}
 
-	// Mixin Content Type with alias "basicContentControls"
-	/// <summary>Basic Content Controls</summary>
-	public partial interface IBasicContentControls : IPublishedContent
-	{
-		/// <summary>Main content</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		global::System.Web.IHtmlString MainContent { get; }
-
-		/// <summary>Title</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		string Title { get; }
-	}
-
-	/// <summary>Basic Content Controls</summary>
-	[PublishedModel("basicContentControls")]
-	public partial class BasicContentControls : PublishedContentModel, IBasicContentControls
+	/// <summary>About</summary>
+	[PublishedModel("about")]
+	public partial class About : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		public new const string ModelTypeAlias = "basicContentControls";
+		public new const string ModelTypeAlias = "about";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<BasicContentControls, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<About, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public BasicContentControls(IPublishedContent content)
+		public About(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
+	}
 
-		///<summary>
-		/// Main content: Enter main content for this page
-		///</summary>
+	/// <summary>Properties</summary>
+	[PublishedModel("properties")]
+	public partial class Properties : PublishedContentModel
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		[ImplementPropertyType("mainContent")]
-		public virtual global::System.Web.IHtmlString MainContent => GetMainContent(this);
+		public new const string ModelTypeAlias = "properties";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Properties, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
 
-		/// <summary>Static getter for Main content</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		public static global::System.Web.IHtmlString GetMainContent(IBasicContentControls that) => that.Value<global::System.Web.IHtmlString>("mainContent");
+		// ctor
+		public Properties(IPublishedContent content)
+			: base(content)
+		{ }
 
-		///<summary>
-		/// Title: Enter a title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		[ImplementPropertyType("title")]
-		public virtual string Title => GetTitle(this);
-
-		/// <summary>Static getter for Title</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		public static string GetTitle(IBasicContentControls that) => that.Value<string>("title");
+		// properties
 	}
 
 	/// <summary>Folder</summary>
