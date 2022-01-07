@@ -496,6 +496,8 @@
     <Content Include="Views\Properties.cshtml" />
     <Content Include="Views\Service.cshtml" />
     <Content Include="Views\Gallery.cshtml" />
+    <Content Include="Views\Partials\Grid\Clean.cshtml" />
+    <Content Include="Views\Partials\ContactForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Models\" />
