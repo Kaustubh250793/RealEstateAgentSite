@@ -1,0 +1,51 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.PublishedContent.Property>
+@{
+	Layout = null;
+}
+
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="service-widget">
+        <div class="property-main">
+            <div class="property-wrap">
+                <figure class="post-media wow fadeIn">
+                    <a href="@Url.SurfaceAction("MediaPickerGallery", "Home")" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+                    <img src="@Model.PropertyImages.FirstOrDefault().Content.Url()" alt="" class="img-responsive">
+                    <div class="label-inner">
+                        <span class="label-status label">Popular</span>
+                    </div>
+                    <div class="price">
+                        <span class="item-sub-price">$@Model.PropertyPrice</span>
+                    </div>
+                </figure>
+                <div class="item-body">
+                    <h3>@Model.PropertyName</h3>
+                    <div class="info">
+                        <div class="info">
+                            <p><span>Bedroom: @Model.NumberOfBedrooms</span> <span>Bathroom: @Model.NumberOfBathrooms</span> <span>Land Size: <span class="estate-x-size">@Model.PropertySize m2</span></span>
+                            <p>House</p>
+                        </div>
+                    </div>
+                    <div class="adderess">
+                        <i class="fa fa-map-pin" aria-hidden="true"></i>
+                        @Model.PropertyAddress
+                    </div>
+                </div>
+            </div>
+            <div class="item-foot">
+                <div class="pull-left">
+                    <span class="prop-user-agent">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        @Model.PropertyOwner
+                    </span>
+                </div>
+                <div class="pull-right">
+                    <span class="prop-date">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        @Model.LastPosted months ago
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div><!-- end service -->
+</div>
+

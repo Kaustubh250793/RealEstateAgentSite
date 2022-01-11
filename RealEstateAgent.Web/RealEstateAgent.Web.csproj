@@ -333,7 +333,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="about.html" />
     <Content Include="config\grid.editors.config.js" />
     <Content Include="config\Lang\cs-CZ.user.xml" />
     <Content Include="config\Lang\da-DK.user.xml" />
@@ -358,6 +357,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\basicSlider.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -420,6 +420,7 @@
     <Content Include="js\portfolio.js" />
     <Content Include="js\retina.js" />
     <Content Include="js\scroll.js" />
+    <Content Include="properties.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="config\imageprocessor\security.config" />
@@ -498,6 +499,9 @@
     <Content Include="Views\Gallery.cshtml" />
     <Content Include="Views\Partials\Grid\Clean.cshtml" />
     <Content Include="Views\Partials\ContactForm.cshtml" />
+    <Content Include="Views\Partials\SearchForm.cshtml" />
+    <Content Include="Views\Property.cshtml" />
+    <Content Include="Views\Partials\MediaPickerGallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Models\" />
@@ -508,7 +512,6 @@
     <Folder Include="App_Plugins\StarterKit\lang\" />
     <Folder Include="App_Plugins\StarterKit\tours\views\medialibrary\" />
     <Folder Include="config\splashes\" />
-    <Folder Include="css\" />
     <Folder Include="Media\1fbntcwq\" />
     <Folder Include="Media\3zubbarg\" />
     <Folder Include="Media\5g4kjyud\" />
@@ -525,8 +528,10 @@
     <Folder Include="Media\y4yjneu4\" />
     <Folder Include="Media\yijjzat0\" />
     <Folder Include="Models\" />
+    <Folder Include="Services\" />
     <Folder Include="Views\MacroPartials\" />
     <Folder Include="Views\Partials\Navigation\" />
+    <Folder Include="Views\Projects\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

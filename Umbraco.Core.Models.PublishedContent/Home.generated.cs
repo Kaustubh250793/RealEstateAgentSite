@@ -21,7 +21,7 @@ namespace Umbraco.Core.Models.PublishedContent
 {
 	/// <summary>Home</summary>
 	[PublishedModel("home")]
-	public partial class Home : PublishedContentModel
+	public partial class Home : PublishedContentModel, IContentControls
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -43,5 +43,12 @@ namespace Umbraco.Core.Models.PublishedContent
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Main Content
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		[ImplementPropertyType("mainContent")]
+		public virtual global::Newtonsoft.Json.Linq.JToken MainContent => global::Umbraco.Core.Models.PublishedContent.ContentControls.GetMainContent(this);
 	}
 }
