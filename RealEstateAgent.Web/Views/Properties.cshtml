@@ -1,10 +1,9 @@
 ﻿@using System.Linq
+@using RealEstateAgent.Web.Models
 
-@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<PropertiesContentModel>
 @{
     Layout = "Master.cshtml";
-
-    var properties = Model.Root().Descendants<Umbraco.Core.Models.PublishedContent.Property>();
 }
 
 <div class="all-title-box">
@@ -38,50 +37,38 @@
 
         <div class="row">
 
-            @*@using (Html.BeginUmbracoForm("FilteredProperties", "Properties", FormMethod.Get))
+            @Html.Partial("SearchForm", Model.PropertiesFilterViewModel)
 
-            {
-                <p>
-                    <div class="row">
-                        <div class="col-md-9" style="display:inline-block">
-                            <div class="row">
-                                <div class="col-md-6" id="search-inputs-div">
+            <br />
+            <br />
+            <br />
+            <br />
 
-                                    @Html.DisplayName("Size") @Html.TextBox("Size", "", new { @id = "size-textbox" })
-                                    <br />
-                                    @Html.DisplayName("Price") @Html.TextBox("Price", "", new { @id = "price-textbox" })
-                                    <br />
-                                </div>
-                                <div class="col-md-6" id="search-projects-buttons">
-                                    <button style="width:70%" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-search"></span> Search</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3"></div>
-                    </div>
-                </p>
+             @*@Html.Partial("AsyncFilter", Model.PropertiesFilterViewModel)*@
 
-            }*@
 
-            @foreach (var property in properties)
+            @foreach (var property in Model.Properties)
             {
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="service-widget">
                         <div class="property-main">
                             <div class="property-wrap">
                                 <figure class="post-media wow fadeIn">
-                                    @{ 
-                                        IEnumerable<MediaWithCrops> carousel = property.PropertyImages;
+                                    @{
+                                        var propertyImages = property.PropertyImages;
 
                                         IEnumerable<MediaWithCrops> children = new List<MediaWithCrops>();
 
-                                        if (carousel != null)
+                                        if (propertyImages != null)
                                         {
-                                            children = carousel.Where(x => x.ContentType.Alias.ToLower() == "image").ToList();
+                                            children = propertyImages.Where(x => x.ContentType.Alias.ToLower() == "image").ToList();
                                         }
+
+                                        string imagePath = string.Empty;
+                                        imagePath = propertyImages != null ? children.FirstOrDefault().Url() : Path.GetFullPath("/uploads/NoImages.png");
                                     }
-                                    <a href="@Url.SurfaceAction("MediaPickerGallery", "Home", new { propId = property.Id })" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-                                    <img src="@children.FirstOrDefault().Url()" alt="" class="img-responsive">
+                                    <a href="@Url.SurfaceAction("MediaPickerGallery", "PropertiesSurface", new { propId = property.Id })" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+                                    <img src=@imagePath alt="" class="img-responsive">
                                     <div class="label-inner">
                                         <span class="label-status label">Popular</span>
                                     </div>

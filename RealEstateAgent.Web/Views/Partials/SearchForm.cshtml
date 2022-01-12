@@ -1,0 +1,41 @@
+﻿@model      RealEstateAgent.Web.Models.ViewModels.PropertiesFilterViewModel
+
+<script type="text/javascript">
+
+    function setInputFieldsToDefault()
+    {
+        document.getElementById("from-size-textbox").value = "";
+        document.getElementById("to-size-textbox").value = "";
+        document.getElementById("from-price-textbox").value = "";
+        document.getElementById("to-price-textbox").value = "";
+    }
+
+</script>
+
+@using (Html.BeginUmbracoForm("Properties", "PropertiesSurface", FormMethod.Post))
+
+{
+    <p>
+        <div class="row">
+            <div class="col-md-9" style="display:inline-block">
+                <div class="row">
+                    <div class="col-md-6" id="search-inputs-div">
+
+                        @Html.DisplayName("Size") @Html.TextBox("fromSize", "", new { @placeholder = "fromSize", @id = "from-size-textbox" })
+                        @Html.TextBox("toSize", "", new { @placeholder = "toSize", @id = "to-size-textbox" })
+                        <br />
+                        @Html.DisplayName("Price") @Html.TextBox("fromPrice", "", new { @placeholder = "fromPrice", @id = "from-price-textbox" })
+                        @Html.TextBox("toPrice", "", new { @placeholder = "toPrice", @id = "to-price-textbox" })
+                        <br />
+                    </div>
+                    <div class="col-md-6" id="search-projects-buttons">
+                        <button style="width:70%" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-search"></span> Search</button>
+                        <button style="width:70%" type="button" value="Reset form" onclick="setInputFieldsToDefault()" class="btn btn-success btn-small btn-block"> <span class="glyphicon glyphicon-remove-sign"></span> Reset Filter</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </p>
+
+}

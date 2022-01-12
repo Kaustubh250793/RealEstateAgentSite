@@ -19,10 +19,5 @@ namespace RealEstateAgent.Web.Controllers
         {
             return View();
         }
-
-        public ActionResult MediaPickerGallery(int propId)
-        {
-            return PartialView("~/Views/Partials/MediaPickerGallery.cshtml", propId);
-        }
     }
 }

@@ -327,9 +327,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PropertiesController.cs" />
+    <Compile Include="Controllers\Surface\PropertiesSurfaceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PropertiesContentModel.cs" />
+    <Compile Include="Models\ViewModels\PropertiesFilterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -357,7 +361,22 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\animate.css" />
     <Content Include="css\basicSlider.css" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\colors.css" />
+    <Content Include="css\custom.css" />
+    <Content Include="css\flaticon.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\prettyPhoto.css" />
+    <Content Include="css\responsive.css" />
+    <Content Include="css\slideshow.css" />
+    <Content Include="css\versions.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -407,7 +426,6 @@
     <Content Include="images\prettyPhoto\light_square\default_thumbnail.gif" />
     <Content Include="images\prettyPhoto\light_square\loader.gif" />
     <Content Include="images\prettyPhoto\light_square\sprite.png" />
-    <Content Include="index.html" />
     <Content Include="js\all.js" />
     <Content Include="js\animate.js" />
     <Content Include="js\custom.js" />
@@ -420,7 +438,6 @@
     <Content Include="js\portfolio.js" />
     <Content Include="js\retina.js" />
     <Content Include="js\scroll.js" />
-    <Content Include="properties.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="config\imageprocessor\security.config" />
@@ -499,9 +516,9 @@
     <Content Include="Views\Gallery.cshtml" />
     <Content Include="Views\Partials\Grid\Clean.cshtml" />
     <Content Include="Views\Partials\ContactForm.cshtml" />
-    <Content Include="Views\Partials\SearchForm.cshtml" />
     <Content Include="Views\Property.cshtml" />
     <Content Include="Views\Partials\MediaPickerGallery.cshtml" />
+    <Content Include="Views\Partials\SearchForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Models\" />
@@ -527,7 +544,6 @@
     <Folder Include="Media\wewjxpgx\" />
     <Folder Include="Media\y4yjneu4\" />
     <Folder Include="Media\yijjzat0\" />
-    <Folder Include="Models\" />
     <Folder Include="Services\" />
     <Folder Include="Views\MacroPartials\" />
     <Folder Include="Views\Partials\Navigation\" />

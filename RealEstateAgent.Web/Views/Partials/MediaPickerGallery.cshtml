@@ -8,24 +8,26 @@
 <!DOCTYPE html>
 <head>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/basicSlider.css">
+    <link rel="stylesheet" href="/css/basicSlider.css">
 </head>
 <html>
 
 <body>
-    @{
-        var children = property.FirstOrDefault().Value<IEnumerable<IPublishedContent>>("propertyImages");
+    <div class="slideshow-container">
+        @{
+            var children = property.FirstOrDefault().Value<IEnumerable<IPublishedContent>>("propertyImages");
 
-        foreach (IPublishedContent item in children)
-        {
-            <div class="mySlides fade">
-                <img src="@item.Url()" style="width:70%">
-            </div>
+            foreach (IPublishedContent item in children)
+            {
+                <div class="mySlides fade">
+                    <img src="@item.Url()" style="width:100%">
+                </div>
+            }
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
         }
-
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    }
+    </div>
     <br>
 
     <div style="text-align:center">
