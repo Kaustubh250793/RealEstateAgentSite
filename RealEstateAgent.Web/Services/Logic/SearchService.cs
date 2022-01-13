@@ -55,12 +55,6 @@ namespace RealEstateAgent.Web.Services.Logic
 
             if (ExamineManager.Instance.TryGetIndex(UmbracoIndexes.ExternalIndexName, out var index))
             {
-                if (terms != null && terms.Any())
-                {
-                    terms = terms.Where(x => !StopAnalyzer.ENGLISH_STOP_WORDS_SET.Contains(x.ToLower()) &&
-                        x.Length > 2).ToArray();
-                }
-
                 var searcher = index.GetSearcher();
                 var criteria = searcher.CreateQuery(searchType);
                 var query = criteria.GroupedNot(new string[] { "umbracoNaviHide" },
@@ -69,18 +63,12 @@ namespace RealEstateAgent.Web.Services.Logic
                 if (terms != null && terms.Any())
                 {
                     query.And(q => q
-                    .GroupedOr(new[] { "nodeName", "pageTitle", "bodyText", "description",
-                        "keywords", "propertyAddress" }, terms), BooleanOperation.Or);
+                    .GroupedOr(new[] { "nodeName", "mainContent", "description", "propertyAddress", "pageTitle" }, terms), BooleanOperation.Or);
                 }
 
                 if (docTypeAliases != null && docTypeAliases.Any())
                 {
                     query.And(q => q.GroupedOr(new[] { "__NodeTypeAlias" }, docTypeAliases));
-                }
-
-                if (!string.IsNullOrWhiteSpace(category))
-                {
-                    query.And().Field("searchableCategories", category);
                 }
 
                 var allResults = query.Execute();

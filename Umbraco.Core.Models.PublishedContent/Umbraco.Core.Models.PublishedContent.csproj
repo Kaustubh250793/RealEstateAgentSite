@@ -413,6 +413,7 @@
     <Compile Include="File.generated.cs" />
     <Compile Include="Folder.generated.cs" />
     <Compile Include="Home.generated.cs" />
+    <Compile Include="HomeControls.generated.cs" />
     <Compile Include="Image.generated.cs" />
     <Compile Include="Member.generated.cs" />
     <Compile Include="NavigationSeo.generated.cs" />

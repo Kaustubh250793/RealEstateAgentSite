@@ -49,7 +49,7 @@ namespace Umbraco.Core.Models.PublishedContent
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		[ImplementPropertyType("description")]
-		public virtual string Description => global::Umbraco.Core.Models.PublishedContent.AboutControls.GetDescription(this);
+		public virtual global::System.Web.IHtmlString Description => global::Umbraco.Core.Models.PublishedContent.AboutControls.GetDescription(this);
 
 		///<summary>
 		/// Description Images
@@ -57,5 +57,12 @@ namespace Umbraco.Core.Models.PublishedContent
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		[ImplementPropertyType("descriptionImages")]
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.MediaWithCrops> DescriptionImages => global::Umbraco.Core.Models.PublishedContent.AboutControls.GetDescriptionImages(this);
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::Umbraco.Core.Models.PublishedContent.AboutControls.GetPageTitle(this);
 	}
 }

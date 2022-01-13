@@ -1,14 +1,9 @@
 ﻿using RealEstateAgent.Web.Models;
 using RealEstateAgent.Web.Models.ViewModels;
 using RealEstateAgent.Web.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
-using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
-using Umbraco.Web.WebApi;
 
 namespace RealEstateAgent.Web.Controllers
 {
@@ -22,15 +17,12 @@ namespace RealEstateAgent.Web.Controllers
         {
             _searchService = searchService;
             _dataTypeValueService = dataTypeValueService;
-            DocTypeAliases = new[] { "aboutUs", "properties" };
+            DocTypeAliases = new[] { "about", "properties" };
         }
 
         public ActionResult Index(ContentModel model, string query, string page, string category)
         {
             var searchPageModel = new ExamineSearchPageModel(model.Content);
-
-            //IEnumerable<SelectListItem> categories =
-            //    _dataTypeValueService.GetItemsFromValueListDataType("[MULTICHECKBOXLIST] Category List", null);
 
             var searchViewModel = new ExamineSearchViewModel()
             {
@@ -45,7 +37,7 @@ namespace RealEstateAgent.Web.Controllers
             }
 
             var searchResults = _searchService.GetPageOfContentSearchResults(query, category,
-                pageNumber, out var totalItemCount, DocTypeAliases);
+                pageNumber, out var DocTypeAliases, null);
 
             searchPageModel.SearchViewModel = searchViewModel;
             searchPageModel.SearchResults = searchResults;

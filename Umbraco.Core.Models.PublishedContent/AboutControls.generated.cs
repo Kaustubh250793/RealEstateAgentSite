@@ -25,11 +25,15 @@ namespace Umbraco.Core.Models.PublishedContent
 	{
 		/// <summary>Description</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		string Description { get; }
+		global::System.Web.IHtmlString Description { get; }
 
 		/// <summary>Description Images</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.MediaWithCrops> DescriptionImages { get; }
+
+		/// <summary>Page Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		string PageTitle { get; }
 	}
 
 	/// <summary>About Controls</summary>
@@ -62,11 +66,11 @@ namespace Umbraco.Core.Models.PublishedContent
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		[ImplementPropertyType("description")]
-		public virtual string Description => GetDescription(this);
+		public virtual global::System.Web.IHtmlString Description => GetDescription(this);
 
 		/// <summary>Static getter for Description</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		public static string GetDescription(IAboutControls that) => that.Value<string>("description");
+		public static global::System.Web.IHtmlString GetDescription(IAboutControls that) => that.Value<global::System.Web.IHtmlString>("description");
 
 		///<summary>
 		/// Description Images
@@ -78,5 +82,16 @@ namespace Umbraco.Core.Models.PublishedContent
 		/// <summary>Static getter for Description Images</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.MediaWithCrops> GetDescriptionImages(IAboutControls that) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.MediaWithCrops>>("descriptionImages");
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => GetPageTitle(this);
+
+		/// <summary>Static getter for Page Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		public static string GetPageTitle(IAboutControls that) => that.Value<string>("pageTitle");
 	}
 }
