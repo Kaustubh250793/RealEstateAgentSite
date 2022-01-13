@@ -1,0 +1,43 @@
+﻿@using RealEstateAgent.Web.Models
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<ExamineSearchPageModel>
+@{
+	Layout = "Master.cshtml";
+}
+
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Properties</h2>
+                <!-- Breadcrumbs -->
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li>Search</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section">
+
+    <div class="container">
+        <div class="col-md-9">
+            @Html.Partial("Partials/ExamineSearchForm", Model.SearchViewModel)
+
+            <p>Your search for <strong>@Model.SearchViewModel.Query</strong> returned these results:</p>
+
+            @if(Model.SearchResults != null && Model.SearchResults.Any())
+            {
+                foreach(var item in Model.SearchResults)
+                {
+                    <p><a href="@item.Url()">@item.Name</a></p>
+                }
+            }
+        </div>
+    </div>
+
+</section>
+

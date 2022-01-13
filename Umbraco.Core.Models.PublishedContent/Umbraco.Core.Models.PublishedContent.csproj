@@ -408,20 +408,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.generated.cs" />
+    <Compile Include="AboutControls.generated.cs" />
     <Compile Include="ContentControls.generated.cs" />
     <Compile Include="File.generated.cs" />
     <Compile Include="Folder.generated.cs" />
     <Compile Include="Home.generated.cs" />
     <Compile Include="Image.generated.cs" />
     <Compile Include="Member.generated.cs" />
+    <Compile Include="NavigationSeo.generated.cs" />
     <Compile Include="Properties.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Property.generated.cs" />
     <Compile Include="SearchPage.generated.cs" />
+    <Compile Include="SEocontrols.generated.cs" />
     <Compile Include="UmbracoMediaArticle.generated.cs" />
     <Compile Include="UmbracoMediaAudio.generated.cs" />
     <Compile Include="UmbracoMediaVectorGraphics.generated.cs" />
     <Compile Include="UmbracoMediaVideo.generated.cs" />
+    <Compile Include="VisibilityControls.generated.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

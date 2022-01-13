@@ -19,26 +19,39 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Core.Models.PublishedContent
 {
-	/// <summary>Search Page</summary>
-	[PublishedModel("searchPage")]
-	public partial class SearchPage : PublishedContentModel, IContentControls, INavigationSeo
+	// Mixin Content Type with alias "navigationSEO"
+	/// <summary>Navigation & SEO</summary>
+	public partial interface INavigationSeo : IPublishedContent
+	{
+		/// <summary>Keywords</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		global::System.Collections.Generic.IEnumerable<string> Keywords { get; }
+
+		/// <summary>Seo Meta Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		string SeoMetaDescription { get; }
+	}
+
+	/// <summary>Navigation & SEO</summary>
+	[PublishedModel("navigationSEO")]
+	public partial class NavigationSeo : PublishedContentModel, INavigationSeo
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		public new const string ModelTypeAlias = "searchPage";
+		public new const string ModelTypeAlias = "navigationSEO";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<SearchPage, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<NavigationSeo, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public SearchPage(IPublishedContent content)
+		public NavigationSeo(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -49,13 +62,21 @@ namespace Umbraco.Core.Models.PublishedContent
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		[ImplementPropertyType("keywords")]
-		public virtual global::System.Collections.Generic.IEnumerable<string> Keywords => global::Umbraco.Core.Models.PublishedContent.NavigationSeo.GetKeywords(this);
+		public virtual global::System.Collections.Generic.IEnumerable<string> Keywords => GetKeywords(this);
+
+		/// <summary>Static getter for Keywords</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		public static global::System.Collections.Generic.IEnumerable<string> GetKeywords(INavigationSeo that) => that.Value<global::System.Collections.Generic.IEnumerable<string>>("keywords");
 
 		///<summary>
 		/// Seo Meta Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		[ImplementPropertyType("seoMetaDescription")]
-		public virtual string SeoMetaDescription => global::Umbraco.Core.Models.PublishedContent.NavigationSeo.GetSeoMetaDescription(this);
+		public virtual string SeoMetaDescription => GetSeoMetaDescription(this);
+
+		/// <summary>Static getter for Seo Meta Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		public static string GetSeoMetaDescription(INavigationSeo that) => that.Value<string>("seoMetaDescription");
 	}
 }

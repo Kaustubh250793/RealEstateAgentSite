@@ -43,12 +43,5 @@ namespace Umbraco.Core.Models.PublishedContent
 		{ }
 
 		// properties
-
-		///<summary>
-		/// Main Content
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		[ImplementPropertyType("mainContent")]
-		public virtual global::Newtonsoft.Json.Linq.JToken MainContent => global::Umbraco.Core.Models.PublishedContent.ContentControls.GetMainContent(this);
 	}
 }

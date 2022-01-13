@@ -19,26 +19,39 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Core.Models.PublishedContent
 {
-	/// <summary>About</summary>
-	[PublishedModel("about")]
-	public partial class About : PublishedContentModel, IAboutControls, IContentControls
+	// Mixin Content Type with alias "aboutControls"
+	/// <summary>About Controls</summary>
+	public partial interface IAboutControls : IPublishedContent
+	{
+		/// <summary>Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		string Description { get; }
+
+		/// <summary>Description Images</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.MediaWithCrops> DescriptionImages { get; }
+	}
+
+	/// <summary>About Controls</summary>
+	[PublishedModel("aboutControls")]
+	public partial class AboutControls : PublishedContentModel, IAboutControls
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		public new const string ModelTypeAlias = "about";
+		public new const string ModelTypeAlias = "aboutControls";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<About, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<AboutControls, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public About(IPublishedContent content)
+		public AboutControls(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -49,13 +62,21 @@ namespace Umbraco.Core.Models.PublishedContent
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		[ImplementPropertyType("description")]
-		public virtual string Description => global::Umbraco.Core.Models.PublishedContent.AboutControls.GetDescription(this);
+		public virtual string Description => GetDescription(this);
+
+		/// <summary>Static getter for Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		public static string GetDescription(IAboutControls that) => that.Value<string>("description");
 
 		///<summary>
 		/// Description Images
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
 		[ImplementPropertyType("descriptionImages")]
-		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.MediaWithCrops> DescriptionImages => global::Umbraco.Core.Models.PublishedContent.AboutControls.GetDescriptionImages(this);
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.MediaWithCrops> DescriptionImages => GetDescriptionImages(this);
+
+		/// <summary>Static getter for Description Images</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.17.1")]
+		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.MediaWithCrops> GetDescriptionImages(IAboutControls that) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.MediaWithCrops>>("descriptionImages");
 	}
 }

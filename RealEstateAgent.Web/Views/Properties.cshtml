@@ -1,10 +1,24 @@
 ﻿@using System.Linq
 @using RealEstateAgent.Web.Models
+@using RealEstateAgent.Web.Helpers
 
 @inherits Umbraco.Web.Mvc.UmbracoViewPage<PropertiesContentModel>
 @{
     Layout = "Master.cshtml";
+
+    var fallBackPageSize = 3;
+    var pageNumber = QueryStringHelper.GetIntFromQueryString(Request, "page", 1);
+    var pageSize = QueryStringHelper.GetIntFromQueryString(Request, "size", fallBackPageSize);
+    var pageOfProperties = Model.Properties.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+    var totalItemCount = Model.Properties.Count();
+
+    var pageCount = totalItemCount > 0 ? Math.Ceiling((double)totalItemCount / pageSize) : 1;
 }
+
+<head>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+</head>
 
 <div class="all-title-box">
     <div class="container">
@@ -44,10 +58,11 @@
             <br />
             <br />
 
-             @*@Html.Partial("AsyncFilter", Model.PropertiesFilterViewModel)*@
+            @*<div class="col-md-6" id="search-projects-buttons">
+                <input type="text" id="fname" onkeyup="myFunction()" />
+            </div>*@
 
-
-            @foreach (var property in Model.Properties)
+            @foreach (var property in pageOfProperties)
             {
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="service-widget">
@@ -65,7 +80,7 @@
                                         }
 
                                         string imagePath = string.Empty;
-                                        imagePath = propertyImages != null ? children.FirstOrDefault().Url() : Path.GetFullPath("/uploads/NoImages.png");
+                                        imagePath = propertyImages != null ? children.FirstOrDefault().Url() : Path.GetFullPath("/uploads/NoImage.png");
                                     }
                                     <a href="@Url.SurfaceAction("MediaPickerGallery", "PropertiesSurface", new { propId = property.Id })" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
                                     <img src=@imagePath alt="" class="img-responsive">
@@ -109,5 +124,63 @@
                 </div>
             }
         </div><!-- end row -->
+
+    <div class="row">
+        <div id="paging" class="clearfix">
+            @if (pageCount > 1)
+                        {
+                            <div class="paging-block">
+                                @if (pageNumber > 1)
+                                {
+                                <a class="btn btn-primary float" href="@($"{Model.Content.Url()}?page={pageNumber - 1}&size={pageSize}")">Prev</a>
+                                }
+                                else
+                                {
+                                    @Html.Raw("&nbsp;")
+                                }
+                            </div>
+                            <div class="paging-block text-center">
+                                <span>Page @pageNumber of @pageCount</span>
+                            </div>
+                            <div class="paging-block">
+                                @if (pageNumber < pageCount)
+                                {
+                                <a class="btn btn-primary float" href="@($"{Model.Content.Url()}?page={pageNumber + 1}&size={pageSize}")">Next</a>
+                                }
+                                else
+                                {
+                                    @Html.Raw("&nbsp;")
+                                }
+                            </div>
+
+            }
+            else
+            {
+                <a class="btn btn-primary float-right" href="@(Model.Content.Url())">View all</a>
+            }
+            </div>
+       </div>
     </div><!-- end container -->
 </div><!-- end section -->
+
+<script>
+    //function myFunction() {
+    //    $.ajax({
+    //        url: 'PropertiesController/Index',
+    //        type: 'POST',
+    //        contentType: 'application/json;',
+    //        data: JSON.stringify({ id: checkId }),
+    //        success: function (valid) {
+    //            if (valid) {
+    //                //show that id is valid 
+    //            } else {
+    //                //show that id is not valid 
+    //            }
+    //        }
+    //    });
+    //}
+
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
