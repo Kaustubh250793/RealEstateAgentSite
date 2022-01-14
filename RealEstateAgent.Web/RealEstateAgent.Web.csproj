@@ -328,8 +328,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Composers\IndexerComposer.cs" />
     <Compile Include="Composers\RegisterServiceComposer.cs" />
+    <Compile Include="Composers\RegisterSettingsComponent.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\API\PropertiesApiController.cs" />
+    <Compile Include="Controllers\API\PropertiesJsonModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchPageController.cs" />
     <Compile Include="Controllers\PropertiesController.cs" />
@@ -393,6 +395,8 @@
     <Content Include="css\slideshow.css" />
     <Content Include="css\versions.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\Flaticon.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -469,6 +473,14 @@
     <Content Include="contact.php" />
     <Content Include="IIS-Builder.ps1" />
     <Content Include="iis-config.json" />
+    <Content Include="fonts\Flaticon.eot" />
+    <Content Include="fonts\Flaticon.ttf" />
+    <Content Include="fonts\Flaticon.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -538,6 +550,7 @@
     <Content Include="Views\Partials\SearchForm.cshtml" />
     <Content Include="Views\SearchPage.cshtml" />
     <Content Include="Views\Partials\ExamineSearchForm.cshtml" />
+    <Content Include="Views\Partials\AsyncSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Models\" />

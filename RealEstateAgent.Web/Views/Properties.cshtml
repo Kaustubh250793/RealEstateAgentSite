@@ -15,11 +15,6 @@
     var pageCount = totalItemCount > 0 ? Math.Ceiling((double)totalItemCount / pageSize) : 1;
 }
 
-<head>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-</head>
-
 <div class="all-title-box">
     <div class="container">
         <div class="row">
@@ -54,13 +49,6 @@
             @Html.Partial("SearchForm", Model.PropertiesFilterViewModel)
 
             <br />
-            <br />
-            <br />
-            <br />
-
-            @*<div class="col-md-6" id="search-projects-buttons">
-                <input type="text" id="fname" onkeyup="myFunction()" />
-            </div>*@
 
             @foreach (var property in pageOfProperties)
             {
@@ -125,62 +113,46 @@
             }
         </div><!-- end row -->
 
-    <div class="row">
-        <div id="paging" class="clearfix">
-            @if (pageCount > 1)
+        <div class="row">
+            <div id="paging" class="clearfix">
+                @if (pageCount > 1)
+                {
+                    <div class="paging-block">
+                        @if (pageNumber > 1)
                         {
-                            <div class="paging-block">
-                                @if (pageNumber > 1)
-                                {
-                                <a class="btn btn-primary float" href="@($"{Model.Content.Url()}?page={pageNumber - 1}&size={pageSize}")">Prev</a>
-                                }
-                                else
-                                {
-                                    @Html.Raw("&nbsp;")
-                                }
-                            </div>
-                            <div class="paging-block text-center">
-                                <span>Page @pageNumber of @pageCount</span>
-                            </div>
-                            <div class="paging-block">
-                                @if (pageNumber < pageCount)
-                                {
-                                <a class="btn btn-primary float" href="@($"{Model.Content.Url()}?page={pageNumber + 1}&size={pageSize}")">Next</a>
-                                }
-                                else
-                                {
-                                    @Html.Raw("&nbsp;")
-                                }
-                            </div>
+                            <a class="btn btn-primary float" href="@($"{Model.Content.Url()}?page={pageNumber - 1}&size={pageSize}")">Prev</a>
+                        }
+                        else
+                        {
+                            @Html.Raw("&nbsp;")
+                        }
+                    </div>
+                    <div class="paging-block text-center">
+                        <span>Page @pageNumber of @pageCount</span>
+                    </div>
+                    <div class="paging-block">
+                        @if (pageNumber < pageCount)
+                        {
+                            <a class="btn btn-primary float" href="@($"{Model.Content.Url()}?page={pageNumber + 1}&size={pageSize}")">Next</a>
+                        }
+                        else
+                        {
+                            @Html.Raw("&nbsp;")
+                        }
+                    </div>
 
-            }
-            else
-            {
-                <a class="btn btn-primary float-right" href="@(Model.Content.Url())">View all</a>
-            }
+                }
+                else
+                {
+                    <a class="btn btn-primary float-right" href="@(Model.Content.Url())">View all</a>
+                }
             </div>
-       </div>
+        </div>
+
+        <hr />
+        <div class="fa-border">
+           @Html.Partial("AsyncSearch")
+        </div>
     </div><!-- end container -->
 </div><!-- end section -->
 
-<script>
-    //function myFunction() {
-    //    $.ajax({
-    //        url: 'PropertiesController/Index',
-    //        type: 'POST',
-    //        contentType: 'application/json;',
-    //        data: JSON.stringify({ id: checkId }),
-    //        success: function (valid) {
-    //            if (valid) {
-    //                //show that id is valid 
-    //            } else {
-    //                //show that id is not valid 
-    //            }
-    //        }
-    //    });
-    //}
-
-    $(document).ready(function () {
-        $('#myTable').DataTable();
-    });
-</script>

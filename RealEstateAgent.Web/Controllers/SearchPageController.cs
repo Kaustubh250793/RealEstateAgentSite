@@ -37,7 +37,7 @@ namespace RealEstateAgent.Web.Controllers
             }
 
             var searchResults = _searchService.GetPageOfContentSearchResults(query, category,
-                pageNumber, out var DocTypeAliases, null);
+                pageNumber, out var totalItemCount, null);
 
             searchPageModel.SearchViewModel = searchViewModel;
             searchPageModel.SearchResults = searchResults;

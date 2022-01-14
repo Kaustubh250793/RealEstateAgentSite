@@ -1,0 +1,34 @@
+﻿<div class="container">
+    <table id="myTable" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Address</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>Last Posted</th>
+                <th>Owner</th>
+            </tr>
+        </thead>
+    </table>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            dataTable = $('#myTable').DataTable({
+                "ajax": {
+                    "url": "https://localhost:44374/umbraco/api/propertiesapi/index",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "Id" },
+                    { "data": "Address" },
+                    { "data": "Size" },
+                    { "data": "Price" },
+                    { "data": "LastPosted" },
+                    { "data": "Owner" }
+                ],
+            });
+        });
+    </script>
+</div>

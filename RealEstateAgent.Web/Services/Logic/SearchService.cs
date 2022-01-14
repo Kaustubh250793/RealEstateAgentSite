@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
-using Lucene.Net.Analysis;
-using RealEstateAgent.Web.Extensions;
 using static Umbraco.Core.Constants;
 
 namespace RealEstateAgent.Web.Services.Logic

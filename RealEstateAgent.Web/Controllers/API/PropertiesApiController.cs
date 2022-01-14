@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web.Http;
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.Web.WebApi;
@@ -8,26 +9,30 @@ namespace RealEstateAgent.Web.Controllers.API
 {
     public class PropertiesApiController : UmbracoApiController
     {
-        // GET: PropertiesApi
-        public IEnumerable<Property> Index(int price)
+        [HttpGet]
+        public IHttpActionResult Index()
         {
             var content = UmbracoContext.Content.GetByContentType(UmbracoContext.Content.GetContentType("properties"));
 
-            var children = content.FirstOrDefault().Value<IEnumerable<Property>>("property");
-
-            var props = new List<Property>();
-            if (children != null)
+            var properties = content.FirstOrDefault().Children.Cast<Property>();
+            var model = new List<PropertiesJsonModel>();
+            if (properties != null)
             {
-                foreach (var child in children)
+                foreach (var child in properties)
                 {
-                    if (child.PropertyPrice <= price)
+                    model.Add(new PropertiesJsonModel()
                     {
-                        props.Add(child);   
-                    }
+                        Id = child.Id,
+                        Address = child.PropertyAddress,
+                        Price = child.PropertyPrice,
+                        Size = child.PropertySize,
+                        LastPosted = child.LastPosted,
+                        Owner = child.PropertyOwner
+                    });
                 }
             }
 
-            return props;
+            return Json(new { data = model });
         }
     }
 }
